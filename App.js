@@ -1,12 +1,20 @@
+//yarn add @react-navigation/native
+//expo install react-native-screens react-native-safe-area-context
+//yarn add @react-navigation/drawer
+//expo install react-native-gesture-handler
+
+
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Font from 'expo-font';
 
+import MealsNavigator from './navigation/MealsNavigator';
+
 //expo install expo-app-loading
 import AppLoading from 'expo-app-loading';
-
-//Also add the following prop to the <AppLoading /> component (in your JSX code):
-//onError={(err) => console.log(err)}
+//yarn add @react-navigation/bottom-tabs
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
 const fetchFonts = () => {
     return Font.loadAsync({
@@ -29,18 +37,5 @@ export default function App() {
     );
   }
 
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  return <MealsNavigator/>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
